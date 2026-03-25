@@ -1,0 +1,53 @@
+<div class="flex items-center justify-center min-h-[80vh]">
+    <div class="pipe-block p-8 max-w-md w-full bg-surface">
+        <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">
+                С
+            </div>
+            <h1 class="text-2xl font-bold text-text">Добро пожаловать в СЛОЙ</h1>
+            <p class="text-textMuted mt-2">Войдите, чтобы продолжить</p>
+        </div>
+
+        <form id="authForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-text mb-1">Email или Никнейм</label>
+                <input type="text" id="authLogin" class="w-full px-4 py-2 bg-bg border border-border rounded-xl outline-none focus:border-primary transition-colors text-text" placeholder="example@email.com">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-text mb-1">Пароль</label>
+                <input type="password" id="authPassword" class="w-full px-4 py-2 bg-bg border border-border rounded-xl outline-none focus:border-primary transition-colors text-text" placeholder="••••••••">
+            </div>
+            <div class="flex items-center justify-between">
+                <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="checkbox" class="rounded text-primary focus:ring-primary bg-bg border-border">
+                    <span class="text-sm text-textMuted">Запомнить меня</span>
+                </label>
+                <a href="#" class="text-sm text-primary hover:underline">Забыли пароль?</a>
+            </div>
+            
+            <button type="submit" class="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30 mt-4">
+                Войти
+            </button>
+            
+            <div class="relative py-4">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-border"></div>
+                </div>
+                <div class="relative flex justify-center">
+                    <span class="px-4 bg-surface text-sm text-textMuted">или</span>
+                </div>
+            </div>
+            
+            <div id="telegramLoginWidget" class="flex justify-center w-full">
+                <button type="button" class="w-full py-3 bg-[#54a9eb] text-white rounded-xl font-semibold hover:bg-[#4395d6] transition-colors flex items-center justify-center space-x-2">
+                    <i class="fab fa-telegram-plane text-xl"></i>
+                    <span>Войти через Telegram</span>
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-8 text-center text-sm text-textMuted">
+            Нет аккаунта? <a href="#" class="text-primary font-semibold hover:underline" onclick="app.router.navigate('register')">Зарегистрироваться</a>
+        </div>
+    </div>
+</div>

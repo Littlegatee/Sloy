@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>СЛОЙ — Социальная сеть</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (for layout utilities) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        bg: 'var(--color-bg)',
+                        surface: 'var(--color-surface)',
+                        text: 'var(--color-text)',
+                        textMuted: 'var(--color-text-muted)',
+                        border: 'var(--color-border)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body class="bg-bg text-text font-sans antialiased">
+
+    <!-- Progress Bar -->
+    <div id="topProgress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[9999] w-0 transition-all duration-300"></div>
+
+    <!-- Загрузочный экран -->
+    <div id="loadingScreen" class="fixed inset-0 bg-surface z-[9999] flex items-center justify-center transition-opacity duration-300">
+        <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 relative">
+                <div class="absolute inset-0 border-4 border-blue-100 rounded-full dark:border-gray-700"></div>
+                <div class="absolute inset-0 border-4 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
+                <div class="absolute inset-4 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">С</span>
+                </div>
+            </div>
+            <div class="text-lg font-semibold text-text">СЛОЙ</div>
+            <div class="text-sm text-textMuted mt-1">Загрузка...</div>
+        </div>
+    </div>
+
+    <!-- Основной интерфейс -->
+    <div id="mainInterface" class="hidden min-h-screen flex flex-col">
+        
+        <!-- Header Container (loaded dynamically) -->
+        <div id="headerContainer"></div>
+
+        <!-- Основной контент -->
+        <div class="flex-1 max-w-7xl mx-auto w-full py-4 px-3 sm:px-6 flex gap-4 sm:gap-8">
+            
+            <!-- Левый сайдбар (loaded dynamically) -->
+            <aside id="sidebarContainer" class="w-64 hidden lg:block sticky top-20 h-fit space-y-4"></aside>
+
+            <!-- Центральная часть (Main Router View) -->
+            <main id="routerView" class="flex-1 max-w-4xl mx-auto w-full relative">
+                <!-- Контент страниц будет загружаться сюда -->
+            </main>
+
+            <!-- Правый сайдбар (loaded dynamically) -->
+            <aside id="rightSidebarContainer" class="w-80 hidden xl:block space-y-4"></aside>
+        </div>
+
+        <!-- Мобильное меню (loaded dynamically) -->
+        <nav id="mobileMenuContainer" class="mobile-menu"></nav>
+
+        <!-- Мини-чат (loaded dynamically) -->
+        <div id="miniChatContainer"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/feed.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/friends.js"></script>
+    <script src="js/communities.js"></script>
+</body>
+</html>

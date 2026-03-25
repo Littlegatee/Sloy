@@ -1,0 +1,95 @@
+<div class="space-y-4">
+    <!-- Шапка профиля -->
+    <div class="pipe-block bg-surface overflow-hidden">
+        <div class="h-48 sm:h-64 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 relative group cursor-pointer" id="profileCover">
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <button class="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg text-sm font-semibold hover:bg-white/30 transition">
+                    <i class="fas fa-camera mr-2"></i>Изменить обложку
+                </button>
+            </div>
+        </div>
+        
+        <div class="px-4 sm:px-6 pb-6 relative">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end -mt-16 sm:-mt-20 mb-4 gap-4">
+                <div class="relative group">
+                    <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-surface bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center text-white text-5xl font-bold shadow-xl overflow-hidden" id="profileAvatar">
+                        А
+                    </div>
+                    <label class="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer border-4 border-transparent">
+                        <i class="fas fa-camera text-white text-xl"></i>
+                        <input type="file" id="avatarInput" class="hidden" accept="image/*">
+                    </label>
+                    <div class="online-dot absolute bottom-2 right-2 w-5 h-5 border-4 border-surface" id="profileOnlineStatus"></div>
+                </div>
+                
+                <div class="flex space-x-3 w-full sm:w-auto">
+                    <button class="flex-1 sm:flex-none px-6 py-2 bg-primary text-white font-semibold rounded-full hover:bg-blue-600 transition shadow-md shadow-primary/20" onclick="app.router.navigate('settings')">
+                        <i class="fas fa-edit mr-2"></i>Редактировать
+                    </button>
+                    <button class="w-10 h-10 bg-bg text-text rounded-full flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition" data-tooltip="Настройки профиля" onclick="app.router.navigate('settings')">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <h1 class="text-2xl font-bold flex items-center text-text">
+                    <span id="profileName">Администратор</span>
+                    <div class="verified-badge ml-2" title="Подтвержденный аккаунт">
+                        <i class="fas fa-check text-[10px]"></i>
+                    </div>
+                </h1>
+                <div class="text-textMuted text-sm mb-2" id="profileUsername">@admin</div>
+                <p class="text-text" id="profileStatus">Основатель СЛОЯ. Создаю лучшую социальную сеть.</p>
+                
+                <div class="flex flex-wrap gap-4 mt-4 text-sm text-textMuted">
+                    <div class="flex items-center"><i class="fas fa-map-marker-alt w-5 text-center"></i> <span id="profileLocation">Москва</span></div>
+                    <div class="flex items-center"><i class="fas fa-birthday-cake w-5 text-center"></i> <span id="profileBirthday">1 января 2000</span></div>
+                    <div class="flex items-center"><i class="fas fa-calendar-alt w-5 text-center"></i> <span id="profileJoined">В СЛОЕ с 2023 года</span></div>
+                </div>
+            </div>
+            
+            <div class="flex space-x-6 py-4 border-t border-border">
+                <div class="text-center cursor-pointer hover:text-primary transition group">
+                    <div class="font-bold text-lg text-text group-hover:text-primary" id="statFriends">127</div>
+                    <div class="text-xs text-textMuted">Друзей</div>
+                </div>
+                <div class="text-center cursor-pointer hover:text-primary transition group">
+                    <div class="font-bold text-lg text-text group-hover:text-primary" id="statFollowers">1.2K</div>
+                    <div class="text-xs text-textMuted">Подписчиков</div>
+                </div>
+                <div class="text-center cursor-pointer hover:text-primary transition group">
+                    <div class="font-bold text-lg text-text group-hover:text-primary" id="statPosts">45</div>
+                    <div class="text-xs text-textMuted">Постов</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Навигация профиля -->
+        <div class="flex px-4 sm:px-6 border-t border-border overflow-x-auto hide-scrollbar">
+            <button class="profile-tab active py-4 px-2 mr-6 font-semibold text-sm whitespace-nowrap transition-colors" data-tab="posts">
+                Посты
+            </button>
+            <button class="profile-tab py-4 px-2 mr-6 font-semibold text-sm whitespace-nowrap text-textMuted hover:text-text transition-colors" data-tab="photos">
+                Фото
+            </button>
+            <button class="profile-tab py-4 px-2 mr-6 font-semibold text-sm whitespace-nowrap text-textMuted hover:text-text transition-colors" data-tab="communities">
+                Сообщества
+            </button>
+        </div>
+    </div>
+
+    <!-- Контент профиля -->
+    <div id="profileContent">
+        <!-- Форма поста (только если свой профиль) -->
+        <div id="profilePostFormContainer"></div>
+        
+        <!-- Посты -->
+        <div id="profilePosts" class="space-y-4 mt-4">
+            <!-- Загружаются динамически -->
+            <div class="pipe-block p-8 text-center bg-surface">
+                <div class="inline-block w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+            </div>
+        </div>
+    </div>
+</div>

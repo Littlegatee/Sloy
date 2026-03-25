@@ -1,0 +1,46 @@
+<div class="space-y-4">
+    <!-- Создание поста -->
+    <div class="pipe-block p-4 bg-surface">
+        <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold shrink-0 shadow-md">
+                <span id="feedCurrentUserAvatar">А</span>
+            </div>
+            <div class="flex-1">
+                <textarea
+                    id="postText"
+                    rows="2"
+                    class="w-full text-text border-none focus:ring-0 outline-none resize-none placeholder-textMuted bg-transparent text-sm custom-scrollbar"
+                    placeholder="Что происходит?"
+                ></textarea>
+                
+                <!-- Превью медиа -->
+                <div id="postMediaPreview" class="hidden mt-2 grid grid-cols-2 gap-2"></div>
+                
+                <div class="flex items-center justify-between mt-3 pt-3 border-t border-border">
+                    <div class="flex space-x-2">
+                        <button class="w-8 h-8 rounded-full hover:bg-bg flex items-center justify-center text-primary transition-colors tooltip" data-tooltip="Добавить фото/видео" onclick="document.getElementById('mediaInput').click()">
+                            <i class="fas fa-image"></i>
+                        </button>
+                        <input type="file" id="mediaInput" class="hidden" accept="image/*,video/*" multiple>
+                        <button class="w-8 h-8 rounded-full hover:bg-bg flex items-center justify-center text-primary transition-colors tooltip" data-tooltip="Добавить эмодзи">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                    </div>
+                    <button id="btnPublish" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-blue-600 transition shadow-md shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed">
+                        Опубликовать
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Лента постов -->
+    <div id="feedPosts" class="space-y-4">
+        <!-- Посты загружаются динамически -->
+    </div>
+    
+    <div id="feedLoader" class="py-8 text-center hidden">
+        <div class="inline-block w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+        <div class="text-sm text-textMuted mt-2">Загрузка новых постов...</div>
+    </div>
+</div>

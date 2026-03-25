@@ -1,0 +1,31 @@
+/* theme.css - Цветовые схемы */
+
+:root {
+    /* Светлая тема (по умолчанию) */
+    --color-primary: #1da1f2; /* Twitter Blue */
+    --color-bg: #f5f8fa;
+    --color-surface: #ffffff;
+    --color-text: #14171a;
+    --color-text-muted: #657786;
+    --color-border: #e1e8ed;
+}
+
+html.dark {
+    /* Темная тема */
+    --color-primary: #1d9bf0;
+    --color-bg: #15202b; /* Twitter Dark */
+    --color-surface: #1e2732;
+    --color-text: #ffffff;
+    --color-text-muted: #8899a6;
+    --color-border: #38444d;
+}
+
+/* Принудительная светлая тема (если нужно) */
+html.light {
+    --color-primary: #1da1f2;
+    --color-bg: #f5f8fa;
+    --color-surface: #ffffff;
+    --color-text: #14171a;
+    --color-text-muted: #657786;
+    --color-border: #e1e8ed;
+}

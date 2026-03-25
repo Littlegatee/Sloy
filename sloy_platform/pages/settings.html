@@ -1,0 +1,143 @@
+<div class="pipe-block p-4 sm:p-6 bg-surface">
+    <h1 class="text-2xl font-bold mb-6 text-text">Настройки</h1>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Навигация настроек (левая колонка) -->
+        <div class="lg:col-span-1 border-r-0 lg:border-r border-border pr-0 lg:pr-6">
+            <nav class="space-y-1" id="settingsNav">
+                <button class="settings-tab active w-full flex items-center space-x-3 px-4 py-3 rounded-xl bg-bg text-primary font-medium transition-colors" data-tab="general">
+                    <i class="fas fa-sliders-h w-5 text-center"></i>
+                    <span>Основные</span>
+                </button>
+                <button class="settings-tab w-full flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-bg text-textMuted hover:text-text font-medium transition-colors" data-tab="profile">
+                    <i class="fas fa-user-edit w-5 text-center"></i>
+                    <span>Профиль</span>
+                </button>
+                <button class="settings-tab w-full flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-bg text-textMuted hover:text-text font-medium transition-colors" data-tab="appearance">
+                    <i class="fas fa-paint-brush w-5 text-center"></i>
+                    <span>Внешний вид</span>
+                </button>
+                <button class="settings-tab w-full flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-bg text-textMuted hover:text-text font-medium transition-colors" data-tab="privacy">
+                    <i class="fas fa-shield-alt w-5 text-center"></i>
+                    <span>Приватность</span>
+                </button>
+                <button class="settings-tab w-full flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-bg text-textMuted hover:text-text font-medium transition-colors" data-tab="notifications">
+                    <i class="fas fa-bell w-5 text-center"></i>
+                    <span>Уведомления</span>
+                </button>
+                <div class="pt-4 mt-4 border-t border-border">
+                    <button class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-red-50 text-red-500 font-medium transition-colors" onclick="app.auth.logout()">
+                        <i class="fas fa-sign-out-alt w-5 text-center"></i>
+                        <span>Выйти из аккаунта</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Контент настроек (правая колонка) -->
+        <div class="lg:col-span-2 min-h-[400px]" id="settingsContent">
+            <!-- Секция: Основные (по умолчанию) -->
+            <div class="settings-section space-y-6" id="settings-general">
+                <h2 class="text-xl font-bold text-text mb-4">Основные настройки</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-text mb-1">Язык интерфейса</label>
+                        <select class="w-full sm:w-64 bg-bg border border-border rounded-xl px-4 py-2 text-sm outline-none focus:border-primary text-text">
+                            <option value="ru">Русский</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-border">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-medium text-text">Сохранять историю поиска</div>
+                                <div class="text-sm text-textMuted">Показывать недавние поисковые запросы</div>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Секция: Профиль -->
+            <div class="settings-section space-y-6 hidden" id="settings-profile">
+                <h2 class="text-xl font-bold text-text mb-4">Настройки профиля</h2>
+                
+                <form id="profileSettingsForm" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-text mb-1">Имя</label>
+                            <input type="text" id="settingsFirstName" class="w-full bg-bg border border-border rounded-xl px-4 py-2 text-sm outline-none focus:border-primary text-text">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text mb-1">Фамилия</label>
+                            <input type="text" id="settingsLastName" class="w-full bg-bg border border-border rounded-xl px-4 py-2 text-sm outline-none focus:border-primary text-text">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-text mb-1">Статус (о себе)</label>
+                        <textarea id="settingsStatus" rows="3" class="w-full bg-bg border border-border rounded-xl px-4 py-2 text-sm outline-none focus:border-primary text-text resize-none"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-text mb-1">Город</label>
+                            <input type="text" id="settingsCity" class="w-full bg-bg border border-border rounded-xl px-4 py-2 text-sm outline-none focus:border-primary text-text">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text mb-1">Дата рождения</label>
+                            <input type="date" id="settingsBirthday" class="w-full bg-bg border border-border rounded-xl px-4 py-2 text-sm outline-none focus:border-primary text-text">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <button type="submit" id="btnSaveProfile" class="px-6 py-2 bg-primary text-white font-semibold rounded-xl hover:bg-blue-600 transition shadow-md shadow-primary/20">
+                            Сохранить изменения
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="settings-section space-y-6 hidden" id="settings-appearance">
+                <h2 class="text-xl font-bold text-text mb-4">Внешний вид</h2>
+                
+                <div>
+                    <div class="font-medium text-text mb-3">Тема оформления</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <button class="theme-btn border-2 border-primary bg-bg rounded-xl p-4 flex flex-col items-center gap-2 transition-all" data-theme="light">
+                            <div class="w-12 h-12 rounded-full bg-white border shadow-sm flex items-center justify-center text-yellow-500 text-xl">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <span class="font-medium text-text">Светлая</span>
+                        </button>
+                        <button class="theme-btn border-2 border-transparent bg-bg rounded-xl p-4 flex flex-col items-center gap-2 transition-all opacity-70 hover:opacity-100" data-theme="dark">
+                            <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-blue-300 text-xl">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <span class="font-medium text-text">Темная</span>
+                        </button>
+                        <button class="theme-btn border-2 border-transparent bg-bg rounded-xl p-4 flex flex-col items-center gap-2 transition-all opacity-70 hover:opacity-100" data-theme="system">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-white to-gray-800 border flex items-center justify-center text-gray-500 text-xl">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <span class="font-medium text-text">Системная</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Другие секции будут добавлены по необходимости -->
+            <div class="settings-section space-y-6 hidden" id="settings-placeholder">
+                <div class="text-center py-12 text-textMuted">
+                    <i class="fas fa-tools text-4xl mb-4 opacity-50"></i>
+                    <p>Этот раздел находится в разработке</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

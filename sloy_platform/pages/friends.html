@@ -1,0 +1,41 @@
+<div class="space-y-4">
+    <div class="pipe-block p-4 sm:p-6 bg-surface">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-text">Друзья</h1>
+                <p class="text-textMuted text-sm mt-1" id="friendsCountTitle">Всего: 0</p>
+            </div>
+            <div class="flex space-x-3">
+                <div class="relative w-full sm:w-auto">
+                    <input type="text" id="friendSearch" class="w-full sm:w-64 bg-bg border border-border rounded-xl py-2 pl-10 pr-4 text-sm outline-none focus:border-primary transition-colors text-text" placeholder="Поиск друзей...">
+                    <i class="fas fa-search absolute left-3.5 top-2.5 text-textMuted text-sm"></i>
+                </div>
+                <button class="shrink-0 px-4 py-2 bg-primary text-white rounded-xl font-semibold hover:bg-blue-600 transition-colors shadow-sm text-sm flex items-center">
+                    <i class="fas fa-user-plus sm:mr-2"></i>
+                    <span class="hidden sm:inline">Найти</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="flex space-x-2 mb-6 overflow-x-auto pb-2 hide-scrollbar border-b border-border">
+            <button class="friends-tab active px-4 py-2 text-sm font-semibold border-b-2 border-primary text-primary transition-colors whitespace-nowrap" data-tab="all">
+                Все друзья
+            </button>
+            <button class="friends-tab px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-textMuted hover:text-text transition-colors whitespace-nowrap" data-tab="online">
+                Онлайн <span class="ml-1 text-xs bg-bg px-1.5 py-0.5 rounded-md" id="onlineFriendsCount">0</span>
+            </button>
+            <button class="friends-tab px-4 py-2 text-sm font-semibold border-b-2 border-transparent text-textMuted hover:text-text transition-colors whitespace-nowrap" data-tab="requests">
+                Заявки <span class="ml-1 text-xs bg-red-500 text-white px-1.5 py-0.5 rounded-md" id="requestsCount">0</span>
+            </button>
+        </div>
+
+        <!-- Список -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="friendsListContainer">
+            <!-- Загружаются динамически -->
+            <div class="col-span-full py-12 text-center text-textMuted">
+                <div class="inline-block w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+            </div>
+        </div>
+    </div>
+</div>
