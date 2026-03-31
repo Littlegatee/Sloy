@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sloy App</title>
+    <meta name="description" content="Official Sloy App" />
+    <meta name="author" content="Sloy INC." />
+    
+    <script>
+      (function() {
+        var theme = localStorage.getItem('sloy_theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        
+        var accentColor = localStorage.getItem('sloy_accent_color');
+        if (accentColor) {
+          document.documentElement.style.setProperty('--primary', accentColor);
+        }
+      })();
+    </script>
+
+    <!-- TODO: Update og:title to match your application name -->
+    <meta property="og:title" content="Sloy App" />
+    <meta property="og:description" content="Official Sloy App" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Sloy" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
